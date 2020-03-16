@@ -16,7 +16,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
+// Router Auth
+Route::get('login', 'connectController@getLogin')->name('login');
+Route::post('login', 'connectController@postLogin')->name('login');
+Route::get('register', 'connectController@getRegister')->name('register');
+Route::post('register', 'connectController@postRegister')->name('register');
+Route::get('logout', 'connectController@getLogout')->name('logout');
