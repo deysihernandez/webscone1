@@ -22,3 +22,4 @@ Route::post('login', 'connectController@postLogin')->name('login');
 Route::get('register', 'connectController@getRegister')->name('register');
 Route::post('register', 'connectController@postRegister')->name('register');
 Route::get('logout', 'connectController@getLogout')->name('logout');
+Route::get('/notas', 'connectController@buscar')->name('notas');

@@ -87,4 +87,9 @@ class ConnectController extends Controller
         Auth::logout();
         return redirect('/');
     }
+
+    public function buscar()
+    {
+        return view('connect.notas');
+    }
 }
