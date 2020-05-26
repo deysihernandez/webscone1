@@ -21,14 +21,13 @@ class ConnectController extends Controller
         return view('connect.ficha');
     } 
     
-   
-
-    public function getLogin(){
-        return view('connect.login');
-    }
 
     public function getForm(){
         return view('connect.form');
+    }
+    
+    public function getLogin(){
+        return view('connect.login');
     }
 
     public function postLogin(Request $request){
