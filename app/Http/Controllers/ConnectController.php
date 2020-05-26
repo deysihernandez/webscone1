@@ -8,11 +8,27 @@ use App\User;
 
 class ConnectController extends Controller
 {   
+    //public function __construct(){
+       // $this->middleware('guest')->except(['getLogout']);
+    //}
     public function __construct(){
-        $this->middleware('guest')->except(['getLogout']);
+        $this->middleware('auth');
+   }
+    public function getCupos(){
+        return view('connect.cupos');
     }
+    public function getFicha(){
+        return view('connect.ficha');
+    } 
+    
+   
+
     public function getLogin(){
         return view('connect.login');
+    }
+
+    public function getForm(){
+        return view('connect.form');
     }
 
     public function postLogin(Request $request){
@@ -34,7 +50,7 @@ class ConnectController extends Controller
         else:
 
             if(Auth::attempt(['email' => $request->input('email'), 'password' => $request->input('password')],true)):
-                return redirect('/');
+                return redirect('/cupos');
             else:
                 return back()->with('message', 'Correo electrónico o contraseña errónea.')->with('typealert', 'danger');
             endif;
@@ -83,8 +99,8 @@ class ConnectController extends Controller
         endif;
     }
 
-    public function getLogout(){
-        Auth::logout();
-        return redirect('/');
-    }
+    //public function getLogout(){
+      //  Auth::logout();
+      //  return redirect('/');
+    //}
 }
