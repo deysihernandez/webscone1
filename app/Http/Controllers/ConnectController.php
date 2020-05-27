@@ -9,7 +9,7 @@ use App\User;
 class ConnectController extends Controller
 {   
     //public function __construct(){
-       // $this->middleware('guest')->except(['getLogout']);
+        //$this->middleware('guest')->except(['getLogout']);
     //}
     public function __construct(){
         $this->middleware('auth');
@@ -17,15 +17,12 @@ class ConnectController extends Controller
     public function getCupos(){
         return view('connect.cupos');
     }
-    public function getFicha(){
-        return view('connect.ficha');
-    } 
-    
-
     public function getForm(){
         return view('connect.form');
     }
-    
+    public function getFicha(){
+        return view('connect.ficha');
+    }
     public function getLogin(){
         return view('connect.login');
     }
@@ -49,7 +46,7 @@ class ConnectController extends Controller
         else:
 
             if(Auth::attempt(['email' => $request->input('email'), 'password' => $request->input('password')],true)):
-                return redirect('/cupos');
+                return redirect('/');
             else:
                 return back()->with('message', 'Correo electrónico o contraseña errónea.')->with('typealert', 'danger');
             endif;
@@ -99,7 +96,9 @@ class ConnectController extends Controller
     }
 
     //public function getLogout(){
-      //  Auth::logout();
-      //  return redirect('/');
+        //Auth::logout();
+        //return redirect('/');
     //}
+
+   
 }

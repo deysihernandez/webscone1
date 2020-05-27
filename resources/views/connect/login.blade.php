@@ -3,6 +3,7 @@
 @section('title', 'Login')
     
 @section('content')
+<link rel="stylesheet" href="{{  url('/static/css/connect.css?v='.time()) }}">
 <div class="box box_login shadow">
     <div class="header">
         <a href="{{ url('/') }}">
